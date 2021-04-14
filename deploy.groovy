@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Stage 1') {
+        stage('checkout') {
             steps {
-                echo "${branch}"
+                echo "${params.branch}"
             }
         }
     }
