@@ -5,8 +5,7 @@ pipeline {
           environment {
             CLOUD_NAME = sh(
               script: 'echo alpha',
-              ,
-              retrunStdOut: true).trim()
+              retrunStdout: true).trim()
           }
           steps {
             sh 'env |grep CLOUD_NAME'
