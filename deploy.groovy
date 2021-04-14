@@ -1,4 +1,4 @@
-pipeline {
+node {
     agent any
     parameters {
         string(name: 'GIT_REMOTE', defaultValue: 'MindTouch', description: 'Name of git repo')
