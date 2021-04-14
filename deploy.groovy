@@ -1,9 +1,13 @@
 pipeline {
     agent any
-    environment {
-      CLOUD_NAME = "${sh(script: 'echo alpha', returnStdout: true).trim()}"
-    }
     stages {
+        stage('SetCloudName') {
+          steps {
+            script {
+              env.CLOUD_NAME = sh(script:'echo alpha', returnStdout: true).trim()
+            }
+          }
+        }
         stage('checkout') {
             steps {
                 echo "${env.GIT_REMOTE}"
