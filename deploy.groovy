@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                echo "${params.branch}"
+                echo "${params.GIT_REMOTE}"
+                echo "${params.GIT_BRANCH}"
             }
         }
     }
