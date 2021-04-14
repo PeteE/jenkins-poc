@@ -5,12 +5,12 @@ pipeline {
     }
     stages {
         stage('DetermineCloudName') {
-          script {
-            env.CLOUD_NAME = sh(
-              script: 'echo alpha',
-              returnStdout: true).trim()
-          }
           steps {
+            script {
+              env.CLOUD_NAME = sh(
+                script: 'echo alpha',
+                returnStdout: true).trim()
+            }
             sh 'env |grep CLOUD_NAME'
           }
         }
