@@ -1,46 +1,24 @@
 pipeline {
     agent any
     stages {
-        stage('JobProperties') {
-          steps {
-            properties(
-              [
-                parameters([
-                  string(
-                    defaultValue: "${params.GIT_SHA}",
-                    description: 'Git SHA',
-                    name: 'GIT_SHA',
-                    trim: true)
-                ])
-              ],
-              [
-                $class: 'EnvInjectJobProperty',
-                info: [
-                  loadFilesFromMaster: false,
-                  secureGroovyScript: [
-                    classpath: [], sandbox: false, script: ''
-                  ]
-                ],
-                keepBuildVariables: true,
-                keepJenkinsSystemVariables: true,
-                on: true
-              ]
-            )
+        stage('DetermineCloudName') {
+          environment {
+            CLOUD_NAME = sh(
+              script: 'echo alpha',
+              ,
+              retrunStdOut: true).trim()
           }
         }
         stage('checkout') {
             steps {
+                echo 'CLOUD_NAME=${CLOUD_NAME}'
+                /*
                 echo "${env.GIT_REMOTE}"
                 sh "env"
                 checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: "${env.GIT_BRANCH}"]], extensions: [[$class: 'CloneOption', noTags: true, reference: '', shallow: true], [$class: 'LocalBranch', localBranch: "${env.GIT_BRANCH}"]], userRemoteConfigs: [[url: 'https://github.com/PeteE/jenkins-poc']]]
                 sh 'git remote -v'
                 sh 'git branch -a'
-            }
-        }
-        stage('DetermineCloudName') {
-            steps {
-                echo 'alpha'
-                // set env var
+                */
             }
         }
     }
