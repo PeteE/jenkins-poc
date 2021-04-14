@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    environment {
+      CLOUD_NAME = ''
+    }
     stages {
         stage('DetermineCloudName') {
-          environment {
-            CLOUD_NAME = sh(
+          script {
+            env.CLOUD_NAME = sh(
               script: 'echo alpha',
               returnStdout: true).trim()
           }
