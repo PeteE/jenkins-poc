@@ -8,6 +8,9 @@ pipeline {
               ,
               retrunStdOut: true).trim()
           }
+          steps {
+            sh 'env |grep CLOUD_NAME'
+          }
         }
         stage('checkout') {
             steps {
