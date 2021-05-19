@@ -1,0 +1,9 @@
+amazon-ecr
+configuration-as-code
+aws-credentials
+blueocean
+custom-tools-plugin
+docker-plugin
+uno-choice
+slack
+docker-workflow

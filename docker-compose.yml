@@ -1,0 +1,19 @@
+version: "2"
+services:
+  jenkins:
+    build: .
+    environment:
+      - CASC_JENKINS_CONFIG=/var/jenkins_home/casc_configs
+    user: root
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+      - "50000:50000"
+    volumes:
+      - jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/petee/dev/jenkins-poc/casc_configs:/var/jenkins_home/casc_configs
+    container_name: jenkins
+volumes:
+  jenkins_data:
+
