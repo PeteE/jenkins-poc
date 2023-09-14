@@ -18,3 +18,8 @@ pipeline-github-lib
 pipeline-aws
 pipeline-stage-view
 project-build-times
+build-timeout
+credentials-binding
+timestamper
+ws-cleanup
+multibranch-scan-webhook-trigger
