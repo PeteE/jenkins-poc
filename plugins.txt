@@ -16,6 +16,7 @@ pipeline-graph-view
 pipeline-utility-steps
 pipeline-github-lib
 pipeline-aws
+aws-parameter-store
 pipeline-stage-view
 project-build-times
 build-timeout
