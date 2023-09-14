@@ -13,6 +13,7 @@ services:
       - jenkins_data:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/petee/dev/jenkins-poc/casc_configs:/var/jenkins_home/casc_configs
+      - /home/petee/dev/Deki:/mindtouch/deki
     container_name: jenkins
 volumes:
   jenkins_data:
