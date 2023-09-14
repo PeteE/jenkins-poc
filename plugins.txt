@@ -13,7 +13,7 @@ job-dsl
 matrix-auth
 Office-365-Connector
 pipeline-graph-view
-pipeline-utility-steps-plugin
+pipeline-utility-steps
 pipeline-github-lib
 pipeline-aws
 pipeline-stage-view
